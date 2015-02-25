@@ -28,7 +28,8 @@ pip install --user virtualenv
 pip install --user virtualenvwrapper
 
 # Add bashrc config vars
-cat $CONFIG_PATH/bashrc_extras.sh >> $HOME/.bashrc
+cp $HOME/.bashrc $HOME/.bashrc_backup
+cat $CONFIG_PATH/files/bashrc_extras.sh >> $HOME/.bashrc
 source $HOME/.bashrc
 
 # Get GEOMANCER project code
@@ -40,7 +41,7 @@ git checkout $VERSION
 
 # Activate and configure app
 APP_CONFIG=$PROJECT_PATH/geomancer/app_config.py
-cp $PROJECT_PATH/app_config.py.example $APP_CONFIG
+cp $PROJECT_PATH/geomancer/app_config.py.example $APP_CONFIG
 SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 sed -i '' "s/your secret key here/$SECRET_KEY/" $APP_CONFIG
 

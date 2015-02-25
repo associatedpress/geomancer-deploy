@@ -35,8 +35,8 @@ To make Geomancer accessible on the internet, you'll need to open port 80 in you
 This can be done in a variety of ways depending on your environment. 
 
 Standard tools such as iptables or FW can be used; or, if you're using
-Amazon EC2, the [EC2 setup wizard][aws-ec2-setup] supports the adding
-firewall rules.
+Amazon EC2, the [EC2 setup wizard][aws-ec2-setup] supports modification
+of firewall rules.
 
 
 [aws-ec2-setup]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-base-security-group
