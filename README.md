@@ -20,7 +20,6 @@ cd code
 git clone https://github.com/associatedpress/geomancer-deploy.git
 </pre>
 
-
 Create the GEOMANCER_SERVER_NAME environment variable. This should be set to a public IP address or domain
  (this will be added to the nginx configuration to make the site available at that address)
 <pre>
@@ -28,6 +27,16 @@ export GEOMANCER_SERVER_NAME="52.50.50.10"
 or
 export GEOMANCER_SERVER_NAME="geomancer.mynewsorg.com
 </pre>
+
+
+Kick off the top-level shell script, _bootstrap.sh_. This script invokes
+several related shell scripts responsible for installing and configuring 
+the Geomancer stack and its dependencies.
+<pre>
+cd /home/ubuntun/code/geomancer-deploy
+sudo ./bootstrap.sh
+</pre>
+
 
 ### Open Firewall
 
@@ -37,6 +46,5 @@ This can be done in a variety of ways depending on your environment.
 Standard tools such as iptables or FW can be used; or, if you're using
 Amazon EC2, the [EC2 setup wizard][aws-ec2-setup] supports modification
 of firewall rules.
-
 
 [aws-ec2-setup]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-base-security-group
