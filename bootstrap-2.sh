@@ -20,6 +20,7 @@ cat $CONFIG_PATH/files/bashrc_extras.sh >> $HOME/.bashrc
 source $HOME/.bashrc
 
 # Get GEOMANCER project code
+cd $HOME/code
 git clone https://github.com/associatedpress/geomancer.git
 cd geomancer
 git checkout $VERSION
@@ -31,6 +32,8 @@ SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 sed -i "s/your secret key here/$SECRET_KEY/" $APP_CONFIG
 
 source $HOME/.local/bin/virtualenvwrapper.sh
+# PATH export makes virtualenv binary visible to virtualenvwrapper shell functions
+export PATH=$PATH:$HOME/.local/bin
 
 # Create virtualenv, link to project code, and install reqs
 mkvirtualenv -a $PROJECT_PATH -r $PROJECT_PATH/requirements.txt geomancer
