@@ -4,11 +4,11 @@ set -x
 echo "Geomancer uninstall process beginning."
 rm -rf $HOME/code/geomancer
 
-rm /etc/nginx/sites-enabled/geomancer.conf
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+rm -f /etc/nginx/sites-enabled/geomancer.conf
+ln -nsf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx reload
 
-cp /etc/supervisor/conf.d/geomancer.conf
+rm -f /etc/supervisor/conf.d/geomancer.conf
 supervisorctl reread
 supervisorctl update
 
