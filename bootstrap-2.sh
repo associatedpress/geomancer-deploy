@@ -14,11 +14,6 @@ CONFIG_PATH=$HOME/code/geomancer-deploy
 SCRIPTS=$CONFIG_PATH/scripts
 PROJECT_PATH=$HOME/code/geomancer
 
-# Update BASHRC
-cp $HOME/.bashrc $HOME/.bashrc_backup
-cat $CONFIG_PATH/files/bashrc_extras.sh >> $HOME/.bashrc
-source $HOME/.bashrc
-
 # Get GEOMANCER project code
 cd $HOME/code
 git clone https://github.com/associatedpress/geomancer.git
@@ -37,6 +32,5 @@ export PATH=$PATH:$HOME/.local/bin
 
 # Create virtualenv, link to project code, and install reqs
 mkvirtualenv -a $PROJECT_PATH -r $PROJECT_PATH/requirements.txt geomancer
-
 
 echo "Geomancer app install and configuration ending."

@@ -19,4 +19,8 @@ apt-get install --yes git python2.7-dev nginx build-essential python-pip redis-s
 pip install --user virtualenv
 pip install --user virtualenvwrapper
 
+# Update BASHRC with virtualenv and path settings
+cp $HOME/.bashrc $HOME/.bashrc_backup
+cat files/bashrc_extras.sh >> $HOME/.bashrc
+
 echo "Geomancer dependency installation ending."
