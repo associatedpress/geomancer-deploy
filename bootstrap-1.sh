@@ -13,7 +13,7 @@ apt-get --yes update
 apt-get --yes upgrade
 
 # Install OS dependencies
-apt-get install --yes git python2.7-dev nginx build-essential python-pip redis-server supervisor
+apt-get install --yes git python2.7-dev nginx build-essential python-pip redis-server supervisor libxml2 libxml2-dev libxslt1-dev zlib1g-dev
 
 # Install python dependencies
 pip install --user virtualenv
