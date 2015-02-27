@@ -1,3 +1,4 @@
+# Debugging script. Does not restore environment to a totally clean state.
 # Command must be run as sudo!
 set -x
 
@@ -12,9 +13,9 @@ rm -f /etc/supervisor/conf.d/geomancer.conf
 supervisorctl reread
 supervisorctl update
 
-rm -rf $HOME/.virtualenvs
+source $HOME/.local/bin/virtualenvwrapper.sh
+rmvirtualenv geomancer
 
 cat $HOME/.bashrc_backup > $HOME/.bashrc
-source $HOME/.bashrc
 
 echo "Geomancer uninstall process complete"
