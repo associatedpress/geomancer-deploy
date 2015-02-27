@@ -9,9 +9,6 @@ exec 1> >(tee /var/log/geomancer-install.log) 2>&1
 echo "Geomancer app install and configuration beginning."
 
 VERSION="master"
-REDIS_VER="2.8.9"
-CONFIG_PATH=$HOME/code/geomancer-deploy
-SCRIPTS=$CONFIG_PATH/scripts
 PROJECT_PATH=$HOME/code/geomancer
 
 # Get GEOMANCER project code
