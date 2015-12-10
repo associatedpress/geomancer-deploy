@@ -84,6 +84,33 @@ This can be done in a variety of ways depending on your environment.
 Standard tools such as [iptables][] or [ufw][] can be used; or, if you're using
 Amazon EC2, the [EC2 setup wizard][aws-ec2-setup] supports configuration of firewall rules.
 
+### Reloading App Code
+
+The default installation relies on [supervisor][] to manage the gunicorn
+application server, along with several worker nodes for processing data.
+
+After deploying a code update, you can restart one or more application
+services using the below commands.
+
+<pre>
+
+# Display names of geomancer processes
+# This is useful if you don't know the names of the worker processes
+sudo supervisorctl status
+
+# Restart appication server process
+sudo supervisorctl restart geomancer
+
+# Restart one worker process
+sudo supervisorctl restart geomancer_worker:geomancer_worker_01
+
+# Restart all processes (use with caution if other apps are managed by
+# supervisor on your system)
+sudo supervisorctl restart all
+
+</pre>
+
+
 [aws-ec2-setup]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-base-security-group
 [geomancer]: https://github.com/associatedpress/geomancer
 [geomancer-deploy]: https://github.com/associatedpress/geomancer-deploy
