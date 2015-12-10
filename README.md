@@ -87,7 +87,7 @@ Amazon EC2, the [EC2 setup wizard][aws-ec2-setup] supports configuration of fire
 ### Reloading App Code
 
 The default installation relies on [supervisor][] to manage the gunicorn
-application server, along with several worker nodes for processing data.
+application server, along with several worker processes for wrangling data.
 
 After deploying a code update, you can restart one or more application
 services using the below commands.
